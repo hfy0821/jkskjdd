@@ -1,0 +1,26 @@
+@color: #191f25;
+@bgColor: rgba(25, 31, 37, 0.122);
+@bgColor1: rgba(25, 31, 37, 0.078);
+
+.cf {
+
+    //两行显示...
+    .text-overflow {
+        text-overflow: -o-ellipsis-lastline;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        /*! autoprefixer: off */
+        -webkit-box-orient: vertical;
+        /* autoprefixer: on */
+    }
+
+    //单行显示...
+    .text-overflow-1() {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}

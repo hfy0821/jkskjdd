@@ -1,0 +1,228 @@
+.flex_between_center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.checkbox {
+  position: relative;
+  margin-left: 10rpx;
+  margin-right: 0px;
+}
+.checkbox .color {
+  color: #00aaff;
+  background-color: #00aaff;
+}
+.checkbox .txt {
+  font-size: 44rpx;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.checkBorder {
+  border: 1px solid #ecdee4;
+}
+.header {
+  width: 100%;
+  position: fixed;
+  background-color: #fff;
+  z-index: 9999;
+}
+.header .title {
+  height: 90rpx;
+  padding: 0 32rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  background-color: #f5f5f5;
+  color: #606064;
+}
+.iconclass {
+  display: inline-block;
+  margin: 0 12rpx;
+  color: #D0D4DB;
+  font-size: 28rpx;
+}
+.container-list {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: calc(100vh - 120rpx);
+  padding-bottom: 160rpx;
+  padding-top: 120rpx;
+}
+.container-list .common {
+  background-color: #fff;
+  border-bottom: 1rpx solid #f4f4f4;
+}
+.container-list .common .content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  font-size: 32rpx;
+}
+.container-list .common .content .list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20rpx 20rpx;
+}
+.container-list .common .content .list-item-image {
+  width: 76rpx;
+  height: 76rpx;
+  margin-right: 20rpx;
+  border-radius: 8rpx;
+}
+.container-list .common .content .img-style {
+  margin-right: 20rpx;
+  background: #eeeff0;
+  border-radius: 8rpx;
+}
+.container-list .common .content .lable-text {
+  font-size: 28rpx;
+  font-weight: 700;
+}
+.container-list .common .content .position-text {
+  font-size: 24rpx;
+  padding-top: 4rpx;
+  color: #000000a6;
+}
+.active {
+  color: #4297ED !important;
+}
+.none {
+  color: #666666;
+}
+.icon-selected {
+  color: #0095F2 !important;
+  font-size: 40rpx !important;
+}
+.icons {
+  color: #0095F2 !important;
+  font-size: 40rpx !important;
+}
+.inline-item {
+  display: inline-block;
+}
+.content-item {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.box_sizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.btn {
+  position: fixed;
+  bottom: 0;
+  padding: 20rpx;
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  padding-bottom: calc(20rpx + constant(safe-area-inset-bottom));
+}
+.btn .sureBtn {
+  background-color: #0095F2;
+  color: #fff;
+  display: inline-block;
+  border-radius: 72rpx;
+  line-height: 72rpx;
+  font-size: 28rpx;
+}
+.btn .checkListBtn {
+  width: 50%;
+  display: inline-block;
+  color: #1890ff;
+  font-size: 28rpx;
+}
+.btn .checkListBtn > span {
+  padding-right: 6rpx;
+}
+.pop-mask {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 112rpx - env(safe-area-inset-bottom));
+  height: calc(100% - 112rpx - constant(safe-area-inset-bottom));
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.pop-mask .pop-box {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60%;
+  background-color: #ffffff;
+  font-size: 28rpx;
+}
+.pop-mask .pop-item-heard {
+  padding: 24rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.pop-mask .pop-item-heard .title {
+  font-weight: 700;
+}
+.pop-mask .pop-item-heard .cancel {
+  color: #1890FF;
+}
+.pop-mask .pop-item-container {
+  padding: 24rpx;
+  height: calc(100% - 120rpx);
+  overflow-y: auto;
+}
+.pop-mask .pop-item-container .pop-item {
+  border-bottom: 1rpx solid #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.pop-mask .pop-item-container .pop-item .pop-item-image {
+  width: 76rpx;
+  height: 76rpx;
+  margin-right: 20rpx;
+  border-radius: 8rpx;
+}
+.pop-mask .pop-item-container .pop-item .pop-item-img {
+  margin-right: 20rpx;
+  background: #eeeff0;
+  border-radius: 8rpx;
+}
+.pop-mask .pop-item-container .pop-item .lable-text {
+  font-size: 28rpx;
+  font-weight: 700;
+}
+.pop-mask .pop-item-container .pop-item .position-text {
+  font-size: 24rpx;
+  padding-top: 4rpx;
+  color: #000000a6;
+}
+.pop-mask .pop-item-container .pop-item .content-text {
+  font-size: 24rpx;
+  padding-top: 4rpx;
+  color: #00000073;
+}
+.pop-mask .pop-item-container .pop-item > span {
+  margin: 10rpx 0;
+  display: inline-block;
+  width: calc(100% - 40rpx);
+  padding: 10rpx 0;
+  vertical-align: middle;
+}
+.pop-mask .pop-item-container .pop-item > span:last-child {
+  width: 40rpx;
+  margin: 10rpx 0;
+  display: inline-block;
+  text-align: right;
+  padding: 10rpx 0;
+}
+.pop-mask .pop-item-container .pop-item > span:last-child .pop-item-icon {
+  border-radius: 50%;
+  border: 2rpx solid;
+}

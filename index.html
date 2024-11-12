@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,
+    user-scalable=no">
+  <title></title>
+  <script src="https://g.alicdn.com/gdt/jsapi/1.9.4/index.js"></script>
+  <script src="https://g.alicdn.com/gdt/jsapi-adapter-dingtalk-pc/1.2.10/index.js"></script>
+  <!-- 地图 -->
+  <script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=ZZDBZ-7KQ36-S5ESB-MIUYS-AHQAO-ZGFOQ"></script>
+  <script type="text/javascript">
+    window._AMapSecurityConfig = {
+      securityJsCode: '5257981b2a7e8a1f871dfd455aefa271',
+    }
+  </script>
+  <script
+    src="https://webapi.amap.com/maps?v=1.4.15&key=3d941096d4df2fb9b23e8c1a9dabcf10&plugin=AMap.Geocoder,AMap.Autocomplete"></script>
+<!--  <script src="https://cdn.bootcdn.net/ajax/libs/vConsole/3.3.4/vconsole.min.js"></script>-->
+  <!-- <script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=201c4fe5c7afab3c4a04d12698c385fd"></script>  -->
+  <!-- 埋点 -->
+<!--  <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>-->
+  <!-- <script src="https://g.alicdn.com/gdt/jsapi/1.8.2/index.js"></script> -->
+  <script src='https://wpkgate-emas.ding.zj.gov.cn/static/wpk-jssdk.1.0.2/wpkReporter.js' crossorigin='true'></script>
+  <script src="./static/aplusQueue.js"></script>
+  <!-- 埋点结束 -->
+  <style>
+    body,
+    div,
+    h1,
+    p {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    body {
+      font-size: 14px;
+      color: #333;
+      background-color: #eee;
+    }
+  </style>
+    <script src="src/main.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+</body>
+<script>
+  // var vConsole = new VConsole();
+  maidian.wdjk('yqytly_zzdpro')
+  maidian.llfx()
+</script>
+<!-- <script>
+  var vConsole = new VConsole();
+
+  //稳定性监控
+  try {
+    const config = {
+      bid: 'cs-xtyy_zzdpro',
+      signkey: '1234567890abcdef',
+      gateway: 'https://wpkgate-emas.ding.zj.gov.cn'
+    };
+    const wpk = new wpkReporter(config);
+    wpk.installAll();
+    window._wpk = wpk;
+  } catch (err) {
+    console.error('WpkReporter init fail', err);
+  }
+</script> -->
+<!-- <script>
+  //通用采集 SDK
+  (function (w, d, s, q, i) {
+    w[q] = w[q] || [];
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+    j.async = true;
+    j.id = 'beacon-aplus';
+    j.src = 'https://alidt.alicdn.com/alilog/mlog/aplus_cloud.js';
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'aplus_queue');
+
+  aplus_queue.push({
+    action: 'aplus.setMetaInfo',
+    arguments: ['aplus-rhost-v', 'alog-api.ding.zj.gov.cn']
+  });
+  aplus_queue.push({
+    action: 'aplus.setMetaInfo',
+    arguments: ['aplus-rhost-g', 'alog-api.ding.zj.gov.cn']
+  });
+
+  var u = navigator.userAgent
+  var isAndroid = u.indexOf('Android') > -1
+  var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
+
+  aplus_queue.push({
+    action: 'aplus.setMetaInfo',
+    arguments: ['appId', isAndroid ? '28302650' : isIOS ? '28328447' : '47130293']
+  });
+
+  // 单页应用 或 “单个页面”需异步补充PV日志参数还需进行如下埋点：
+  aplus_queue.push({
+    action: 'aplus.setMetaInfo',
+    arguments: ['aplus-waiting', 'MAN']
+  });//
+
+  // 如采集用户信息是异步行为需要先执行这个BLOCK埋点
+  aplus_queue.push({
+    action: 'aplus.setMetaInfo',
+    arguments: ['_hold', 'BLOCK']
+  });
+
+
+</script> -->
+
+</html>

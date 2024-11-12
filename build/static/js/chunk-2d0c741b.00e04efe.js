@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0c741b"],{"509c":function(p,c,n){p.exports=n.p+"static/img/ouhai_map.6b5369f3.svg"}}]);

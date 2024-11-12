@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  // font-family: "Microsoft YaHei"!important;
+  font-family: "PingFangSC-Light", "PingFang SC", "PingFang SC UltraLight", "Microsoft YaHei", "sans-serif";
+  color: #191f25;
+  font-size: 28px;
+}
+
+html,
+body {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background: #fff;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+p,
+blockquote,
+table,
+th,
+td,
+img,
+textarea {
+  font-weight: normal;
+  font-style: normal;
+  font-size: normal;
+}
+
+input,
+textarea,
+select,
+radio,
+checkbox,
+button {
+  border: none;
+  outline: none;
+  resize: none;
+  -webkit-appearance: none;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+img {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+s,
+i,
+em,
+b {
+  font-weight: normal;
+  font-style: normal;
+  font-size: normal;
+  text-decoration: none;
+}
+
+.txt-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tc {
+  text-align: center;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+
+.clearfix {
+  zoom: 1;
+}
+
+@color-primary: #008EF3;
+@color-placeholder: #191f2566;
+
+.clearfix::after,
+.clearfix::before {
+  clear: both;
+  content: ' ';
+  display: block;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+input {
+  font-size: 15px;
+}
+
+textarea::-webkit-input-placeholder {
+  color: @color-placeholder;
+}
+
+textarea::-moz-placeholder {
+  color: @color-placeholder;
+}
+
+textarea:-moz-placeholder {
+  color: @color-placeholder;
+}
+
+textarea:-ms-input-placeholder {
+  color: @color-placeholder;
+}
+
+input::-webkit-input-placeholder {
+  color: @color-placeholder;
+}
+
+input::-moz-placeholder {
+  color: @color-placeholder;
+}
+
+input:-moz-placeholder {
+  color: @color-placeholder;
+}
+
+input:-ms-input-placeholder {
+  color: @color-placeholder;
+}
+
+.van-loading__circular {
+  display: none;
+}
+
+.van-list__loading,
+.van-list__finished-text {
+  text-align: center;
+}
+
+.van-dialog__header {
+  line-height: 100px !important;
+}
+
+.van-button--large {
+  height: 70px !important;
+}
+
+// .van-uploader__preview-image {
+//   width: 150px !important;
+//   height: 150px !important;
+// }
+
+.van-cell {
+  line-height: 80px;
+}
+
+.van-notify {
+  font-size: 30px !important;
+  line-height: 40px !important;
+  padding: 15px 0px !important;
+}
+
+.van-uploader__preview-image {
+  width: 25vw !important;
+  height: 25vw !important;
+}

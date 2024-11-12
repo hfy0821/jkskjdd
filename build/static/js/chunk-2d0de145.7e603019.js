@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0de145"],{"83b6":function(n,e,t){"use strict";t.r(e);var o=function(){var n=this,e=n._self._c;return e("div")},s=[],u={name:"selectBox",components:{},data:function(){return{list:[]}},mounted(){},methods:{}},c=u,a=t("2877"),d=Object(a["a"])(c,o,s,!1,null,"bb7e84e8",null);e["default"]=d.exports}}]);

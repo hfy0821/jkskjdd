@@ -1,0 +1,230 @@
+{
+  "coverImg": "",
+  "dataSources": {
+    "dataUrl": "https://pazht.ouhai.gov.cn:8000/dataView/sgi/operate?operateType=selectRoadEventCount",
+    "dataParams": "",
+    "freshTime": 5000,
+    "defaultData": "{\"legends\":[\"事件数\",\"处置数\"],\"series\":[[13,10,13,5,13,10,13,5,13,10,13,5,10],[10,8,10,4,10,8,10,4,10,8,10,4,10]],\"title\":\"\",\"xAxis\":[\"街道名称\",\"街道名称\",\"街道名称\",\"街道名称\",\"街道名称\",\"街道名称\",\"街道名称\",\"街道名称\",\"街道名称\",\"街道名称\",\"街道名称\",\"街道名称\",\"街道名称\"]}\n",
+    "dataType": 2,
+    "interact": []
+  },
+  "delayTime": 5000,
+  "firstLoad": 0,
+  "firstSend": 0,
+  "id": "1601195867966",
+  "moduleName": "echarts_bar",
+  "nickName": "镇街类别事件",
+  "orderNum": 18,
+  "position": {
+    "top": "56%",
+    "left": "70.5%",
+    "width": "27%",
+    "height": "38.5%"
+  },
+  "sceneId": "eef162d4014e4310a782b04a1f3b234e",
+  "status": 1,
+  "style": {
+    "seriesBackground": [
+      {
+        "barWidth": "50%",
+        "stack": "shadow",
+        "silent": true,
+        "show": true,
+        "tooltip": {
+          "show": false
+        },
+        "itemStyle": {
+          "borderType": "solid",
+          "borderColor": "rgba(0,0,0,0)",
+          "color": "rgba(0,0,0,0)",
+          "borderWidth": 0,
+          "barBorderRadius": 0
+        },
+        "z": 1,
+        "label": {},
+        "type": "bar"
+      }
+    ],
+    "stack": false,
+    "yAxis": [
+      {
+        "axisLabel": {
+          "rotate": 0,
+          "verticalAlign": "middle",
+          "margin": 10,
+          "color": "rgba(255,255,255,1)",
+          "show": true,
+          "interval": 0,
+          "fontSize": "1.5vh",
+          "inside": false,
+          "align": "right"
+        },
+        "inverse": false,
+        "gridIndex": 0,
+        "axisLine": {
+          "lineStyle": {
+            "color": "#333",
+            "width": 1,
+            "type": "solid"
+          },
+          "show": false
+        },
+        "show": true,
+        "axisTick": {
+          "lineStyle": {
+            "color": "#333",
+            "width": 1,
+            "type": "solid"
+          },
+          "show": false,
+          "length": 5,
+          "interval": 0,
+          "inside": false,
+          "alignWithLabel": false
+        },
+        "splitLine": {
+          "lineStyle": {
+            "color": "rgba(255,255,255,0.2)",
+            "width": 1,
+            "type": "solid"
+          },
+          "show": true,
+          "interval": 0
+        },
+        "scale": false,
+        "position": "left",
+        "boundaryGap": true
+      }
+    ],
+    "xAxis": [
+      {
+        "axisLabel": {
+          "rotate": 0,
+          "verticalAlign": "top",
+          "margin": 15,
+          "color": "rgba(255,255,255,1)",
+          "show": true,
+          "interval": 0,
+          "fontSize": "1.5vh",
+          "inside": false,
+          "align": "center"
+        },
+        "inverse": false,
+        "gridIndex": 0,
+        "axisLine": {
+          "lineStyle": {
+            "color": "rgba(255,255,255,0.7)",
+            "width": 1,
+            "type": "solid"
+          },
+          "show": true
+        },
+        "show": true,
+        "axisTick": {
+          "lineStyle": {
+            "color": "rgba(255,255,255,1)",
+            "width": 2,
+            "type": "solid"
+          },
+          "show": true,
+          "length": 5,
+          "interval": 0,
+          "inside": false,
+          "alignWithLabel": true
+        },
+        "splitLine": {
+          "lineStyle": {
+            "color": "#333",
+            "width": 1,
+            "type": "solid"
+          },
+          "show": false,
+          "interval": 0
+        },
+        "scale": false,
+        "position": "bottom",
+        "boundaryGap": true
+      }
+    ],
+    "grid": [
+      {
+        "top": "60",
+        "left": "0",
+        "bottom": "0",
+        "width": "auto",
+        "right": "0",
+        "containLabel": true,
+        "height": "auto"
+      }
+    ],
+    "legend": {
+      "padding": 0,
+      "itemGap": "2vh",
+      "orient": "horizontal",
+      "bottom": "auto",
+      "itemHeight": "1.5vh",
+      "show": true,
+      "icon": "circle",
+      "right": "auto",
+      "align": "auto",
+      "top": "25",
+      "left": "25",
+      "width": "auto",
+      "itemWidth": "1.5vh",
+      "textStyle": {
+        "color": "rgba(255,255,255,1)",
+        "fontSize": "1.5vh",
+        "lineHeight": "12"
+      },
+      "height": "auto"
+    },
+    "series": [
+      {
+        "barWidth": "25%",
+        "barMaxWidth": "100%",
+        "color": [
+          "#0ff"
+        ],
+        "barMinWidth": "1%",
+        "barGap": "0%",
+        "xAxisIndex": 0,
+        "itemStyle": {
+          "borderType": "solid",
+          "borderColor": "rgba(0,0,0,0)",
+          "borderWidth": 0,
+          "barBorderRadius": "15"
+        },
+        "label": {
+          "rotate": 0,
+          "verticalAlign": "middle",
+          "color": "#fff",
+          "positionType": "inside",
+          "distance": "5",
+          "show": false,
+          "fontSize": "12",
+          "position": "",
+          "align": "center"
+        },
+        "type": "bar",
+        "linearColor": [
+          {
+            "start": "rgba(74,125,242,1)",
+            "end": "rgba(74,125,242,0)"
+          },
+          {
+            "start": "rgba(242,205,87,1)",
+            "end": "rgba(242,205,87,0)"
+          }
+        ],
+        "yAxisIndex": 0,
+        "colorType": 2
+      }
+    ],
+    "orientations": 1,
+    "multiple": 1.2,
+    "bartType": 1
+  },
+  "sysUserId": "3333",
+  "updateTime": "2020-09-27 16:47:23",
+  "showStatus": true
+}
