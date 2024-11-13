@@ -7,54 +7,58 @@
           <li class="li">
             <span>初始发送人</span>
             <div>
-              {{ detail.createUserName }}
+              {{ detail.sendName }}
             </div>
           </li>
           <li>
             <span>发送时间</span>
-            <div>{{ detail.createTime }}</div>
+            <div>{{ detail.sendTime }}</div>
           </li>
           <li class="ea">
           <span>指令内容</span>
           <div class="ea_d">
-            {{ detail.incidentAddress }}
+            {{ detail.instructionContent }}
           </div>
         </li>
       </ul>
     </div>
     <div class="detailMsg">
       <div class="header_icon"><span>反馈情况</span></div>
-        <ul class="ul">
+        <ul class="ul" v-for="(item, index) in detail.feedbackList" :key="index">
           <li class="li">
             <span>转发人</span>
             <div>
-              {{ detail.createUserName }}
+              {{ item.feedbackUserName }}
             </div>
           </li>
           <li>
             <span>发送时间</span>
-            <div>{{ detail.createTime }}</div>
+            <div>{{ item.createTime }}</div>
           </li>
           <li class="ea">
-          <span>指令内容</span>
-          <div class="ea_d">
-            {{ detail.incidentAddress }}
-          </div>
-        </li>
-      </ul>
+            <span>指令内容</span>
+            <div class="ea_d">
+              {{ detail.description }}
+            </div>
+          </li>
+          <li>
+            <span>状态</span>
+            <div>{{ item.feedbackStatusName }}</div>
+          </li>
+        </ul>
     </div>
     <div class="btn" >
       <span @click="submitFn(1)">取消</span>
-      <span @click="submitFn(2)">反馈</span>
+      <!-- 有反馈id 并且反馈状态为未反馈 -->
+      <span v-if="!detail.feedbackId && detail.feedbackStatus ==0" @click="submitFn(2)">反馈</span>
     </div>
   </div>
 </template>
 
 <script>
 import {
-  getDetailById,
-  emergencyOperate
-} from '../../api/a'
+  getInstructionDetail
+} from '@/api/a'
 export default {
   name: 'orderAdminDetail',
   data () {
@@ -93,13 +97,13 @@ export default {
         this.$router.push({
           path: '/orderAdmin/feedBack',
           query: {
-            id: this.id
+            id: this.detail.feedbackId
           }
         })
       }
     },
     async getDetail () {
-      const res = await getDetailById({
+      const res = await getInstructionDetail({
         id: this.id
       })
       this.detail = res.data

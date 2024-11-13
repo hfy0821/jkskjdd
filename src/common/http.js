@@ -63,7 +63,7 @@ const Utils = {
             //     .then(res => { })
             //     .catch(err => { });
           }
-          if (response.data.message.indexOf('登录') >= 0) {
+          if (response.data.message?.indexOf('登录') >= 0) {
             router.push('/')
           }
           resolve(response.data)

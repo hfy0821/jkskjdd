@@ -17,16 +17,18 @@
             placeholder="在此输入指令处置后的反馈说明"
           ></textarea>
         </div>
-        <div class="item" style="display: flex;">
-          <p :class="formData.joinNum ? 'active' : ''">
-            后续处置
-            <span class="require">*</span>
-          </p>
-          <van-radio-group v-model="formData.status"  style="margin-left: 20px;" @change="radioChange" class="radio">
-            <van-radio name="1">关闭</van-radio>
-            <van-radio name="2">同步转应急事件</van-radio>
-            <van-radio name="3">同步转重大风险隐患库</van-radio>
-          </van-radio-group>
+        <div class="item">
+          <p :class="formData.aaa?'active':''">附件上传</p>
+          <ul class="file">
+            <li v-for="(v, i) in files" :key="i">
+              <span>{{v.fileName}}</span>
+              <i @click="delFile(i)" class="iconfont icon-cha2"></i>
+            </li>
+          </ul>
+          <button>
+            上传
+            <input @change="fileChange" multiple type="file" name id />
+          </button>
         </div>
       </div>
     </div>
@@ -39,9 +41,11 @@
 
 <script>
 import {
-  getDetailById,
-  emergencyOperate
-} from '../../api/a'
+  getInstructionDetail,
+  feedbackInstruction,
+  newUpload
+} from '@/api/a'
+import { Dialog } from 'vant'
 export default {
   name: 'zeroReportDetail',
   data () {
@@ -50,13 +54,14 @@ export default {
       detail: {},
       edit: true,
       formData: {
-        status: '1',
-        remark: null
-      }
+        remark: null,
+        attachFiles: []
+      },
+      files: []
     }
   },
   async created () {
-    this.id = this.$route.query.id
+    this.id = this.$route.query.feedbackId
     window.scrollTo(0, 0)
     dd.disablePullToRefresh()
     this.getDetail()
@@ -74,21 +79,42 @@ export default {
         this.$router.go(-1)
         return
       }
-      if (!this.formData.status) {
-        this.$toast('请选择零报情况')
+      if (!this.formData.remark) {
+        this.$toast('请输入反馈说明')
         return
       }
-      if (this.formData.status == 2 && !this.formData.remark) {
-        this.$toast('请输入异常描述')
-        return
-      }
+      this.formData.attachFiles = this.files.map(file => {
+        return file.fileId
+      })
+      // console.log('attach', this.formData);
+      Dialog.confirm({
+        title: '温馨提示',
+        message: '是否确定提交？',
+        className: 'confirm-dialog',
+        getContainer: () => document.querySelector('.event_warp')
+      }).then(async () => {
+        const data = await feedbackInstruction({ ...this.formData, id: this.id })
+        if (data.success) {
+          dd.alert({
+            message: data.message ? data.message : '操作成功',
+            title: '提示',
+            button: '收到'
+          })
+            .then((res) => {
+              this.$router.go(-1)
+            })
+        }
+      }).catch(() => {
+        // on cancel
+      })
+      return
       dd.confirm({
         title: '温馨提示',
         message: '是否确定提交？',
         buttonLabels: ['取消', '确定']
       }).then(async (res) => {
         if (res.buttonIndex === 1) {
-          const data = await emergencyOperate(this.formData)
+          const data = await feedbackInstruction(this.formData)
           if (data.success) {
             dd.toast({
               icon: 'success',
@@ -101,10 +127,45 @@ export default {
       })
     },
     async getDetail () {
-      const res = await getDetailById({
+      const res = await getInstructionDetail({
         id: this.id
       })
       this.detail = res.data
+    },
+     async fileChange (e) {
+      let sendData = new FormData()
+      const files = [...e.target.files]
+      console.log(files)
+      if (files && files.length) {
+        // dd.device.notification.showPreloader({
+        //   text: '文件上传中..',
+        //   showIcon: true,
+        //   onSuccess(result) {}
+        // })
+        files.forEach((v) => {
+          sendData.append('files', v)
+        })
+        sendData.append('rbacToken', localStorage.getItem('rbacToken'))
+        // dd.device.notification.hidePreloader({
+        //   onSuccess: function (result) {},
+        //   onFail: function (err) {}
+        // })
+        const data = await newUpload(sendData)
+        if (data.success) {
+          data.data &&
+            data.data.length &&
+            data.data.forEach((v, i) => {
+              var obj = {}
+              obj.fileType = files[i].type
+              obj.fileName = files[i].name
+              obj.fileId = v
+              this.files.push(obj)
+            })
+        }
+      }
+    },
+    delFile (i) {
+      this.files.splice(i, 1);
     }
   }
 }
@@ -254,6 +315,12 @@ export default {
         margin: 0;
       }
     }
+  }
+  /deep/.van-dialog{
+    width: 80% !important;
+  }
+  /deep/.van-dialog__message {
+    font-size: 26px !important;
   }
 }
 </style>

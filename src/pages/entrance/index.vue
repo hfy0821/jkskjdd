@@ -111,8 +111,8 @@ export default {
   created () {
     localStorage.clear()
     this.toggle = true
-    // localStorage.setItem('rbacToken', '420729d9dc254d83a0ddd9a55113a3f4')
-    // return
+    localStorage.setItem('rbacToken', '0e49a16d97fb45598eb2af736915b259')
+    return
     dd.showLoading({
       text: '加载中'
     })
