@@ -3,6 +3,22 @@
     <div class="tabClass">
       <Nav :tabs="tabs" :tabIndex="tabIndex" @changeIndex="changeIndex"></Nav>
     </div>
+    <div class="btn" v-show="tabIndex == 2">
+      <p>指令时间：</p>
+      <timeSelect
+        style="
+          flex: 1;
+          padding-right: 10px;
+          display: flex;
+          align-items: end;
+        "
+        @dateFun="dateFun"
+        :defaultData="
+          timeBegin && timeEnd ? timeBegin + '至' + timeEnd : ''
+        "
+      />
+      <span class="bule" @click="handReset">重置</span>
+    </div>
     <ul
       class="listClass"
       v-infinite-scroll="loadMore"
@@ -28,9 +44,9 @@
           ></span>
         </div> -->
         <div class="li_content">
-          <div class="li_content_title">{{ item.title }}</div>
-          <div class="li_content_time">{{ item.incidentAddress + '' + item.incidentAddress }}</div>
-          <div class="li_content_bottom">指令时间：{{ item.incidentTime }}</div>
+          <div class="li_content_title">{{ item.sendName }}</div>
+          <div class="li_content_time">{{ item.instructionContent }}</div>
+          <div class="li_content_bottom">指令时间：{{ item.sendTime }}</div>
         </div>
       </li>
       <li v-if="!noMore" class="loadMoreClass">
@@ -43,21 +59,24 @@
 </template>
 
 <script>
+import timeSelect from '@/components/timeSelect'
 import Nav from '@/components/tab'
 import {
-  getEmergencyEventList
-} from '@//api/a'
+  queryInstructionPageList
+} from '@/api/a'
 export default {
   name: 'orderAdmin',
-  components: { Nav },
+  components: { Nav, timeSelect },
   data () {
     return {
       tabs: [{ name: '待反馈' }, { name: '已反馈' }],
       loading: false,
       noMore: false,
-      tabIndex: localStorage.getItem('orderAdminTabIndex') / 1 || 1, // 0:待报送 1:已报送
+      tabIndex: localStorage.getItem('orderAdminTabIndex') / 1 || 1, // 0:待反馈 1:已反馈
       listData: [],
       total: 0,
+      timeBegin: '',
+      timeEnd: '',
       params: {
         pageNo: 1,
         pageSize: 10
@@ -75,10 +94,22 @@ export default {
       .then((res) => {
         this.getData()
       }).catch(() => {
-        dd.stopPullDownRefresh()
+        // dd.stopPullDownRefresh()
       })
   },
   methods: {
+    dateFun (start, end) {
+      console.log('start:', start, 'end:', end)
+      this.timeBegin = start
+      this.timeEnd = end
+      this.params.sendStartTime = start
+      this.params.sendEndTime = end
+      this.getData()
+      // 保存获取到的时间...
+    },
+    handReset () {
+      this.dateFun('', '')
+    },
     changeIndex (i) {
       this.tabIndex = i
       localStorage.setItem('orderAdminTabIndex', i)
@@ -121,12 +152,12 @@ export default {
       //       "地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址地址",
       //   },
       // ];
-      const data = await getEmergencyEventList({
+      const data = await queryInstructionPageList({
         ...this.params,
-        type: this.tabIndex
+        feedbackStatus: this.tabIndex - 1
       })
       if (data.success) {
-        this.listData = data.data.list
+        this.listData = data.data.data
         this.total = data.data.total
         this.noMore = true
       }
@@ -150,6 +181,23 @@ export default {
     // > span {
     //   font-size: 30px;
     // }
+  }
+  .btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 32px;
+    .bule {
+      width: 100px;
+      background: #fff;
+      color: #409eff;
+      border: 1px solid;
+      text-align: center;
+      border-radius: 8px;
+      letter-spacing: 5px;
+      padding: 10px 0;
+    }
   }
   .listClass{
     li {

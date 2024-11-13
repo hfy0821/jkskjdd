@@ -6,6 +6,9 @@ export function _http(url, data, method) {
   return $http[method || 'get'](`${baseUrl}${url}`, data)
 }
 
+// 上传
+export const newUpload = (data) => $http.post(`${baseUrl}emergency/sysFile/upload`, data)
+
 export const dictDropDown = (data) => $http.get(`${baseUrl}emergency/dataDict/getDataDictItemDropDown`,data)
 // 零报送
 export function queryMyReportPage(data) {
@@ -85,7 +88,6 @@ export function getPeoplePetitionInfo(data) {
 export function addPeoplePetitionRecord(data) {
   return $http.post(`${baseUrl}socialGovernance/OuEmphasesPeople/addPeoplePetitionRecord`, data)
 }
-
 
 export function updateJspticket(data) {
   return $http.post(`${baseUrl}socialGovernance/dingGover/updateJspticket`, data)
@@ -584,6 +586,24 @@ function checkApproveHiddenTrouble(data) {
 // 新增点位事件
 function addPointLocationEvent(data) {
   return $http.post(`${baseUrl}fySecretInvestigate/pointLocationEvent/addPointLocationEvent`, data)
+}
+
+// 应急指令接口
+// 应急指令分页返回
+export function queryInstructionPageList (data) {
+  return $http.get(`${baseUrl}emergency/instruction/queryInstructionPageList`, data)
+}
+// 指令下达
+export function saveInstruction (data) {
+  return $http.post(`${baseUrl}emergency/instruction/saveInstruction`, data)
+}
+// 指令反馈
+export function feedbackInstruction (data) {
+  return $http.post(`${baseUrl}emergency/instruction/feedbackInstruction`, data)
+}
+// 指令详情
+export function getInstructionDetail (data) {
+  return $http.get(`${baseUrl}/emergency/instruction/getInstructionDetail`, data)
 }
 
 export default {
